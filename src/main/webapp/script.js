@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(resp => resp.json())
         .then(data => {
             let html = '<ul>';
-            //data.forEach(item => {
-                html += `<li>${data.name} + ${data.price}</li>`;
-            //});
+            Object.entries(data).forEach(item => {
+                html += `<li>${item[0]} - ${item[1]}</li>`;
+            });
             html += '</ul>';
             document.getElementById('invoice-container').innerHTML = html;
         })
